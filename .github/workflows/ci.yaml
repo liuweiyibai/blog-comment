@@ -7,7 +7,6 @@ on:
 
 jobs:
   update-json:
-    if: contains(github.event.head_commit.message, 'fix: u') # 只有提交信息包含 'fix: u' 时才执行
     runs-on: ubuntu-latest
 
     steps:
