@@ -1,0 +1,16 @@
+{
+  "name": "blog-source",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/liuweiyibai/blog-source.git",
+  "author": "威 刘 <lw1140@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./scripts/ci.js"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "path": "^0.12.7",
+    "recursive-readdir": "^2.2.3"
+  }
+}
