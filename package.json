@@ -9,6 +9,7 @@
     "start": "node ./scripts/ci.js"
   },
   "dependencies": {
+    "execa": "^9.3.0",
     "gh-pages": "^6.1.1",
     "gray-matter": "^4.0.3",
     "path": "^0.12.7",

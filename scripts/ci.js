@@ -3,7 +3,11 @@ const path = require("path");
 const recursive = require("recursive-readdir");
 const matter = require("gray-matter");
 const ghpages = require("gh-pages");
+const { execa } = require("execa");
 
+const { stdout } = await execa`npm run build`;
+// Print command's output
+console.log(stdout);
 // 定义要读取的文件夹路径和输出 JSON 文件路径
 const folderPath = path.join(__dirname, "../");
 const outputFilePath = path.join(__dirname, "./database.json");
@@ -19,7 +23,7 @@ if (fs.existsSync(outputFilePath)) {
 }
 
 // 读取文件夹下所有的 Markdown 文件
-recursive(folderPath, ["!*.md"], (err, files) => {
+recursive(folderPath, ["!*.md"], async (err, files) => {
   if (err) {
     console.error("读取文件夹出错", err);
     return;
@@ -56,7 +60,8 @@ recursive(folderPath, ["!*.md"], (err, files) => {
     "utf8"
   );
   console.log(`分类信息已保存到 ${outputFilePath}`);
-
+  await execa`git config --global user.name 'github-actions[bot]'`;
+  await execa`git config --global user.email 'github-actions[bot]@users.noreply.github.com'`;
   ghpages.publish(__dirname, function (err) {
     console.log(err);
   });
