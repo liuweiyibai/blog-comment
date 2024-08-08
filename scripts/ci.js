@@ -5,7 +5,6 @@ const matter = require("gray-matter");
 const ghpages = require("gh-pages");
 const { execa } = require("execa");
 
-const { stdout } = await execa`npm run build`;
 // Print command's output
 console.log(stdout);
 // 定义要读取的文件夹路径和输出 JSON 文件路径
