@@ -4,10 +4,11 @@ const recursive = require("recursive-readdir");
 const matter = require("gray-matter");
 
 // 定义要读取的文件夹路径和输出 JSON 文件路径
-const folderPath = path.join(__dirname, "..");
+const folderPath = path.join(__dirname);
 const outputFilePath = path.join(__dirname, "./database.json");
 
-console.log(folderPath);
+console.log(`文件夹地址 ${folderPath}\n`);
+console.log(`json 文件地址 ${outputFilePath}\n`);
 
 // 读取已存在的分类 JSON 文件
 let existingCategories = {};
