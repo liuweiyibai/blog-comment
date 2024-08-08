@@ -10,7 +10,7 @@ const outputFilePath = path.join(__dirname, "./database.json");
 
 console.log(`文件夹地址 ${folderPath}\n`);
 console.log(`json 文件地址 ${outputFilePath}\n`);
-
+console.log(__dirname);
 // 读取已存在的分类 JSON 文件
 let existingCategories = {};
 if (fs.existsSync(outputFilePath)) {
@@ -57,5 +57,5 @@ recursive(folderPath, ["!*.md"], (err, files) => {
   );
   console.log(`分类信息已保存到 ${outputFilePath}`);
 
-  ghpages.publish("../scripts", function (err) {});
+  ghpages.publish(__dirname, function (err) {});
 });
