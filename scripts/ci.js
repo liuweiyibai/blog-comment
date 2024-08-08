@@ -57,5 +57,7 @@ recursive(folderPath, ["!*.md"], (err, files) => {
   );
   console.log(`分类信息已保存到 ${outputFilePath}`);
 
-  ghpages.publish(__dirname, function (err) {});
+  ghpages.publish(__dirname, function (err) {
+    console.log(err);
+  });
 });
