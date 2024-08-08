@@ -1,12 +1,10 @@
-const fs = require("fs");
-const path = require("path");
-const recursive = require("recursive-readdir");
-const matter = require("gray-matter");
-const ghpages = require("gh-pages");
-const { execa } = require("execa");
+import fs from "fs";
+import path from "path";
+import recursive from "recursive-readdir";
+import matter from "gray-matter";
+import ghpages from "gh-pages";
+import { execa } from "execa";
 
-// Print command's output
-console.log(stdout);
 // 定义要读取的文件夹路径和输出 JSON 文件路径
 const folderPath = path.join(__dirname, "../");
 const outputFilePath = path.join(__dirname, "./database.json");
