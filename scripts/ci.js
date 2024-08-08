@@ -2,9 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const recursive = require("recursive-readdir");
 const matter = require("gray-matter");
+const ghpages = require("gh-pages");
 
 // 定义要读取的文件夹路径和输出 JSON 文件路径
-const folderPath = path.join(__dirname);
+const folderPath = path.join(__dirname, "../");
 const outputFilePath = path.join(__dirname, "./database.json");
 
 console.log(`文件夹地址 ${folderPath}\n`);
@@ -55,4 +56,6 @@ recursive(folderPath, ["!*.md"], (err, files) => {
     "utf8"
   );
   console.log(`分类信息已保存到 ${outputFilePath}`);
+
+  ghpages.publish("../scripts", function (err) {});
 });
